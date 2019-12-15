@@ -18,11 +18,13 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 # end import
 
+
 #
 # import data
 filename = './section_3/iris.data.csv'
 names = ['separ-length', 'separ-width', 'petal-length', 'petal-width', 'class']
 dataset = pd.read_csv(filename, names=names)
+
 
 #
 # Observe given data
@@ -42,8 +44,10 @@ dataset = pd.read_csv(filename, names=names)
 # pd.plotting.scatter_matrix(dataset) # Multi variable matrix
 # pyplot.show()
 
+
 #
 # Seperate data set
+
 array = dataset.values
 X = array[:, 0:4]
 Y = array[:, 4]
@@ -56,6 +60,7 @@ X_train, X_validation, Y_train, Y_validatation = train_test_split(
 
 # #
 # # Algorithm estimation
+
 # models = {}
 # models['LR'] = LogisticRegression()
 # models['LDA'] = LinearDiscriminantAnalysis()
@@ -72,8 +77,10 @@ X_train, X_validation, Y_train, Y_validatation = train_test_split(
 #     results.append(cv_results)
 #     print(f"{key}: {cv_results.mean()} {cv_results.std()}")
 
+
 #
 # Generate Model
+
 svm = SVC()
 svm.fit(X=X_train, y=Y_train)
 PREDICTIONS = svm.predict(X_validation)
